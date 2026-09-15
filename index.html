@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="startGame"><button>Start Game</button></div>
-    <div class="game-starting-counter">
-      <span class="number"></span> minutes left
-    </div>
-    <div class="game-container">
-      <div class="game-header">
-        <div class="user">Hello: <span></span></div>
-        <div class="wrong">Wrong Tries: <span></span></div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A responsive card-matching memory game built with vanilla JavaScript.">
+  <link rel="stylesheet" href="style.css">
+  <title>Memory Match | JavaScript Game</title>
+</head>
+<body>
+  <main class="game">
+    <header class="game__header">
+      <div>
+        <p class="eyebrow">Vanilla JavaScript Game</p>
+        <h1>Memory Match</h1>
       </div>
-      <div class="game-body"></div>
-    </div>
-    <div class="result">
-      <div class="content">
-        <span class="level">Perfect</span><br />You Have Finished The Game With
-        <span class="wrong-number"></span> Wrong Choices
+      <button class="restart-button" type="button">Restart</button>
+    </header>
+
+    <section class="game__status" aria-label="Game status">
+      <p>Moves <strong class="moves">0</strong></p>
+      <p>Matches <strong class="matches">0 / 10</strong></p>
+      <p>Time <strong class="timer">00:00</strong></p>
+    </section>
+
+    <section class="board" aria-label="Memory cards"></section>
+
+    <section class="result" role="dialog" aria-modal="true" aria-labelledby="result-title" hidden>
+      <div class="result__card">
+        <p class="eyebrow">Board complete</p>
+        <h2 id="result-title">You matched every pair!</h2>
+        <p class="result-summary"></p>
+        <button class="play-again" type="button">Play again</button>
       </div>
-      <button class="startAgain">Start Again</button>
-    </div>
-    <audio class="success" src="audio/success.mp3"></audio>
-    <audio src="audio/fail.mp3" class="failur"></audio>
-    <script src="main.js"></script>
-  </body>
+    </section>
+
+    <p class="sr-only announcement" role="status" aria-live="polite"></p>
+  </main>
+
+  <audio id="success-sound" src="audio/success.mp3"></audio>
+  <audio id="fail-sound" src="audio/fail.mp3"></audio>
+  <script src="main.js"></script>
+</body>
 </html>
